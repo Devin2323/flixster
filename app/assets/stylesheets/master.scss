@@ -27,6 +27,12 @@ h1, h2, h3, h4, h5, h6, .navbar {
   margin: 0;
 }
 
+.feature {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 .frosty {
   background: rgba(0, 0, 0, 0.5);
   color: white;
@@ -46,4 +52,8 @@ h1, h2, h3, h4, h5, h6, .navbar {
 
 .btn {
   border-radius: 0;
+}
+
+body {
+  background: image_url('bg.png');
 }
