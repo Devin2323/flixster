@@ -76,3 +76,4 @@ gem 'simple_form'
 gem 'devise'
 gem "mini_magick"
 gem 'carrierwave-aws'
+gem 'stripe'
