@@ -1,6 +1,7 @@
 class Instructor::LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_authorized_for_current_section
+  before_action :require_enrolled_for_course
 
   def new
     @lesson = Lesson.new
@@ -19,6 +20,12 @@ class Instructor::LessonsController < ApplicationController
     end
   end
 
+  def require_enrolled_for_course
+    if !current_user.enrolled_in?(current_section.course)
+      redirect_to courses, alert: 'You are not enrolled'
+    end
+  end
+
   helper_method :current_section
   def current_section
     @current_section ||= Section.find(params[:section_id])
@@ -27,4 +34,5 @@ class Instructor::LessonsController < ApplicationController
   def lesson_params
     params.require(:lesson).permit(:title, :subtitle, :video)
   end
+
 end
