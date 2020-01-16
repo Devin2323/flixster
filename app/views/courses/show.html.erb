@@ -46,6 +46,7 @@
     </div>
   </div>
 
+
   <div class="col-12">
     <% @course.sections.each do |section| %>
       <br /><br />
@@ -54,7 +55,9 @@
           <%= section.title %>
         </h3>
         <div class="row">
-          <% section.lessons.each do |lesson| %>
+
+
+          <% section.lessons.rank(:row_order).each do |lesson| %>
             <div class="col-12 col-sm-6">
               <div class="lesson text-center">
                 <br />
@@ -63,12 +66,15 @@
                   <br />
                   <%= lesson.subtitle %>
                 <% end %>
-              </div>
-            </div>
+              </div><!-- .lesson .text-center -->
+            </div><!-- .col-12 .col-sm-6 -->
           <% end %>
-        </div>
-        <br class="clr" />
-      </div>
+
+        
+          <br class="clr" />
+        </div><!-- .row -->
+      </div><!-- .section -->
     <% end %>
-  </div>
+  </div><!-- .col-12 -->
+
 </div>
